@@ -1,4 +1,4 @@
-# bitoextensionsidebarhtml README
+# Sample Visual Studio Extension Using WebView View
 
 ## Features
 
