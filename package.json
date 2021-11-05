@@ -4,11 +4,11 @@
   "description": "Sidebar Html VS Code Extension",
   "version": "1.0.0",
   "publisher": "vscode-extension-webview",
-  "homepage": "https://github.com/owner/project#readme",
+  "homepage": "https://github.com/KumarVariable/vscode-extension-sidebar-html/blob/afded57b2b4e13a002774b0d2d965b0a9024e83d/README.md",
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "https://github.com/npm/cli.git"
+    "url": "https://github.com/KumarVariable/vscode-extension-sidebar-html.git"
   },
   "engines": {
     "vscode": "^1.61.0"
