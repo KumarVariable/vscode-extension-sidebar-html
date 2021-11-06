@@ -17,16 +17,51 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:bitoextensionsidebarhtml.helloWorld"
+    "onCommand:vscodeSidebar.openview",
+    "onView:vscodeSidebar.openview"
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "custom-activitybar",
+          "title": "SideBar",
+          "icon": "assets/logo_bito.svg"
+        }
+      ]
+    },
+    "views": {
+      "custom-activitybar": [
+        {
+          "type": "webview",
+          "id": "vscodeSidebar.openview",
+          "name": "WebView View",
+          "contextualTitle": "WebView View"
+        }
+      ]
+    },
     "commands": [
       {
-        "command": "bitoextensionsidebarhtml.helloWorld",
-        "title": "Hello World"
+        "command": "vscodeSidebar.openview",
+        "title": "Sidebar View"
+      },
+      {
+        "command": "vscodeSidebar.menu.view",
+        "category": "vscode-extension-sidebar-html",
+        "title": "Sample WebView in VS Code Sidebar",
+        "icon": "$(clear-all)"
       }
-    ]
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "vscodeSidebar.menu.view",
+          "group": "navigation",
+          "when": "view == vscodeSidebar.openview"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
