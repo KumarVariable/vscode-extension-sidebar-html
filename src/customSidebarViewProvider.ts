@@ -23,16 +23,22 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
   }
 
   private getHtmlContent(webview: vscode.Webview): string {
-    
-    // Get the local path to main script run in the webview, 
+    // Get the local path to main script run in the webview,
     // then convert it to a uri we can use in the webview.
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this._extensionUri, "assets", "main.js")
     );
 
+    const styleResetUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._extensionUri, "assets", "reset.css")
+    );
+    const styleVSCodeUri = webview.asWebviewUri(
+      vscode.Uri.joinPath(this._extensionUri, "assets", "vscode.css")
+    );
+
     // Same for stylesheet
     const stylesheetUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "assets", "style.css")
+      vscode.Uri.joinPath(this._extensionUri, "assets", "main.css")
     );
 
     // Use a nonce to only allow a specific script to be run.
@@ -48,7 +54,10 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
         <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
         <link href="https://fonts.googleapis.com/css2?family=Muli:wght@300;400;700&display=swap" rel="stylesheet">
 
-				<link href="${stylesheetUri}" rel="stylesheet">
+				<link href="${styleResetUri}" rel="stylesheet">
+				<link href="${styleVSCodeUri}" rel="stylesheet">
+				
+        <link href="${stylesheetUri}" rel="stylesheet">
 				
 			</head>
 
@@ -57,10 +66,13 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
       <div class="container">
             <div class="content">
                 <h2 class="subtitle">Subscribe today</h2>
-                <h1 class="title">Never miss a chance</h1>
                 <input type="text" class="mail" placeholder="Your email address" name="mail" required>
-                <input type="submit" value="Subscribe" class="subscribe">
-                <p class="text">We won’t send you spam. Unsubscribe at any time.</p>
+                
+                <button class="add-color-button">Subscribe</button>
+                
+                <p class="text">We won’t send you spam.</p>
+                <p class="text">Unsubscribe at any time.</p>
+                
             </div>
       </div>
 			</section>

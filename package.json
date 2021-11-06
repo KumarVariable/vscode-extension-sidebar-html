@@ -26,7 +26,7 @@
       "activitybar": [
         {
           "id": "custom-activitybar",
-          "title": "SideBar",
+          "title": "VSCode Extension",
           "icon": "assets/logo_bito.svg"
         }
       ]
@@ -36,8 +36,8 @@
         {
           "type": "webview",
           "id": "vscodeSidebar.openview",
-          "name": "WebView View",
-          "contextualTitle": "WebView View"
+          "name": "View",
+          "contextualTitle": "View"
         }
       ]
     },
