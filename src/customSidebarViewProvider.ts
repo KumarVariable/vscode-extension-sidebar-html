@@ -24,7 +24,12 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
     webviewView.webview.onDidReceiveMessage((data) => {
       switch (data.command) {
         case "alert": {
-          vscode.window.showInformationMessage(data.text);
+          let prefix = "You have entered - ";
+          let addName = prefix + 'Name : ' + data.arguments.username;
+          let addEmail = addName + ' , Email : ' + data.arguments.email;
+          let finalObj = addEmail;
+
+          vscode.window.showInformationMessage(finalObj);
           break;
         }
       }
@@ -73,20 +78,25 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
 			<body>
 			<section class="wrapper">
       <div class="container">
-            <div class="content">
-                <h2 class="subtitle">Subscribe today</h2>
-                <input type="text" class="mail" placeholder="Your email address" name="mail" id="mail" required>
+        <div class="content">    
+        <h2 class="subtitle">Subscribe today</h2>
+        
+        <label for="name" class="label">Name: </label>
+        <input type="text" class="mail" placeholder="Your name" id="name" required />
+
+        <label for="email" class="label">Email: </label>
+        <input type="text" class="mail" placeholder="Your email address" id="mail" required />
                 
-                <button class="add-color-button">Subscribe</button>
+        <button class="add-color-button">Subscribe</button>
                 
-                <p class="text">We won’t send you spam.</p>
-                <p class="text">Unsubscribe at any time.</p>
+        <p class="text">We won’t send you spam.</p>
+        <p class="text">Unsubscribe at any time.</p>
                 
-            </div>
+        </div>
       </div>
 			</section>
 			<script nonce="${nonce}" src="${scriptUri}"></script>
-      
+
       </body>
 
 			</html>`;

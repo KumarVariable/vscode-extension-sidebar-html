@@ -6,7 +6,11 @@
   });
 
   function readInputText() {
-    const testInput = document.getElementById("mail").value;
-    vscode.postMessage({ command: "alert", text: testInput });
+    let username = document.getElementById("name").value;
+    let email = document.getElementById("mail").value;
+
+    let user = {username:username, email:email};
+
+    vscode.postMessage({ command: "alert", arguments:user });
   }
 })();

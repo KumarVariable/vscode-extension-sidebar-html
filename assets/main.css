@@ -35,6 +35,12 @@ body {
 	margin: 0 auto;
 }
 
+.label {
+	color: antiquewhite;
+	font-size: 1rem;
+	margin-bottom: 0.8em;
+}
+
 .text {
 	font-size: 1rem;
 	margin-bottom: 0.8em;
