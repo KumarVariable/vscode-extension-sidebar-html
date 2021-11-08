@@ -57,7 +57,7 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
 			<html lang="en">
 			<head>
 				<meta charset="UTF-8">
-        <!--<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">-->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource}; script-src 'nonce-${nonce}';">
 				<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
@@ -77,7 +77,7 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
                 <h2 class="subtitle">Subscribe today</h2>
                 <input type="text" class="mail" placeholder="Your email address" name="mail" id="mail" required>
                 
-                <button class="add-color-button" onclick="myFunction()">Subscribe</button>
+                <button class="add-color-button">Subscribe</button>
                 
                 <p class="text">We won’t send you spam.</p>
                 <p class="text">Unsubscribe at any time.</p>
@@ -86,21 +86,7 @@ export class CustomSidebarViewProvider implements vscode.WebviewViewProvider {
       </div>
 			</section>
 			<script nonce="${nonce}" src="${scriptUri}"></script>
-
-      <script>
-        function myFunction() {
-          const testInput = document.getElementById("mail").value;
-          const vscode = acquireVsCodeApi();
-          const counter = document.getElementById('lines-of-code-counter');
-
-          let count = 0;
-
-          vscode.postMessage({command: 'alert', text: testInput});
-
-        }
-  </script>
-
-
+      
       </body>
 
 			</html>`;
